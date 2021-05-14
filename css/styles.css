@@ -45,9 +45,10 @@ body {
     padding: 0;
     margin: 0;
     background-color: var(--background);
+    font-family: var(--font);
 }
 
-.header__container {
+.container__header {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -56,7 +57,71 @@ body {
 
 h1 {
     color: var(--textLight);
-    font-family: var(--font);
     font-size: var(--headline-1-size);
+    font-weight: var(--headlines-weight);
     letter-spacing: var(--headline-1-letter-spacing);
+}
+
+.container__library {
+    padding: 0 100px 0 100px;
+    display: grid;
+}
+
+.library__book {
+    background-color: var(--primary);
+    color: var(--textLight);
+    height: 300px;
+    width: 200px;
+}
+
+.book__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70px
+}
+
+.header__title {
+    font-size: var(--headline-4-size);
+    font-weight: var(--headlines-weight);
+    letter-spacing: var(--headline-4-letter-spacing);
+}
+
+.header__author {
+    font-size: var(--subtitle-size);
+    font-weight: var(--headlines-weight);
+    letter-spacing: var(--subtitle-letter-spacing);
+}
+
+.book__body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+}
+
+.body__icon svg {
+    height: 70px;
+    width: 70px;
+}
+
+.book__footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+}
+
+.footer__numberOfPages {
+    font-size: var(--body-size);
+    font-weight: var(--body-weight);
+    letter-spacing: var(--body-letter-spacing);
+}
+
+.footer__read {
+    font-size: var(--body-size);
+    font-weight: var(--body-weight);
+    letter-spacing: var(--body-letter-spacing);
 }
