@@ -1,4 +1,5 @@
 :root {
+    /* color */
     --primary: #673ab7;
     --primaryLight: #9A67EA;
     --primaryDark: #320B86;
@@ -8,11 +9,54 @@
     --success: #27AB83;
     --error: #E12D39;
     --information: #F0B429;
+
+    /* typography */
+    --font: Karla;
+    --headlines-weight: 700;
+    --body-weight: 400;
+
+    --headline-1-size: 66px;
+    --headline-1-letter-spacing: -0.5px;
+
+    --headline-2-size: 53px;
+    --headline-2-letter-spacing: 0px;
+
+    --headline-3-size: 38px;
+    --headline-3-letter-spacing: 0.25px;
+
+    --headline-4-size: 27px;
+    --headline-4-letter-spacing: 0px;
+
+    --subtitle-size: 16px;
+    --subtitle-letter-spacing: 0.15px;
+
+    --body-size: 17px;
+    --body-letter-spacing: 0.5px;
+
+    --button-size: 15px;
+    --button-letter-spacing: 1.25px;
+
+    --caption-size: 13px;
+    --caption-letter-spacing: 0.4px;
 }
 
 html,
 body {
     padding: 0;
     margin: 0;
+    background-color: var(--background);
 }
 
+.header__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+}
+
+h1 {
+    color: var(--textLight);
+    font-family: var(--font);
+    font-size: var(--headline-1-size);
+    letter-spacing: var(--headline-1-letter-spacing);
+}
