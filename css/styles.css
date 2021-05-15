@@ -72,6 +72,7 @@ h1 {
     color: var(--textLight);
     height: 300px;
     width: 200px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15), 0px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .book__header {
@@ -112,6 +113,7 @@ h1 {
     justify-content: center;
     align-items: center;
     height: 80px;
+    gap: 5px;
 }
 
 .footer__numberOfPages {
@@ -120,8 +122,20 @@ h1 {
     letter-spacing: var(--body-letter-spacing);
 }
 
-.footer__read {
+/* .footer__checkbox {
+    display: flex;
+    align-items: center;
+} */
+
+.footer__checkbox span {
     font-size: var(--body-size);
     font-weight: var(--body-weight);
     letter-spacing: var(--body-letter-spacing);
 }
+
+.footer__checkbox input {
+    vertical-align: middle;
+    height: 13px;
+    width: 13px;
+    border-radius: 4px;
+  }
