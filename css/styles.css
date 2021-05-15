@@ -65,6 +65,10 @@ h1 {
 .container__library {
   padding: 0 100px 0 100px;
   display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-column-gap: 25px;
+  grid-row-gap: 50px;
+  justify-items: center;
 }
 
 .library__book {
@@ -140,6 +144,7 @@ h1 {
   display: inline-block;
   width: 30px;
   height: 17px;
+  margin-top: 2px;
 }
 
 .checkbox__switch input {
@@ -155,7 +160,7 @@ h1 {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: var(--primaryLight);
   -webkit-transition: 0.4s;
   transition: 0.4s;
   border-radius: 34px;
@@ -168,7 +173,7 @@ h1 {
   width: 13px;
   left: 2px;
   bottom: 2px;
-  background-color: white;
+  background-color: var(--textLight);
   -webkit-transition: 0.4s;
   transition: 0.4s;
   border-radius: 50%;
