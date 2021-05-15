@@ -122,20 +122,16 @@ h1 {
     letter-spacing: var(--body-letter-spacing);
 }
 
-/* .footer__checkbox {
-    display: flex;
-    align-items: center;
-} */
-
-.footer__checkbox span {
+.footer__checkbox label {
     font-size: var(--body-size);
     font-weight: var(--body-weight);
     letter-spacing: var(--body-letter-spacing);
+    display: flex;
 }
 
 .footer__checkbox input {
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
     vertical-align: middle;
-    height: 13px;
-    width: 13px;
-    border-radius: 4px;
   }
