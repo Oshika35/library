@@ -192,3 +192,20 @@ input:checked + .switch__slider:before {
   -ms-transform: translateX(13px);
   transform: translateX(13px);
 }
+
+.library__book.library__book--add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hsla(262, 52%, 47%, 0.5);
+}
+
+.body__icon--add {
+  height: 64px;
+  width: 64px;
+  color: var(--primaryLight);
+}
+
+.body__icon--add svg {
+    cursor: pointer;
+}
