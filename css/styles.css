@@ -126,6 +126,8 @@ h1 {
   letter-spacing: var(--body-letter-spacing);
 }
 
+/* switch button */
+
 .footer__checkbox {
   display: flex;
   flex-direction: row;
@@ -193,6 +195,8 @@ input:checked + .switch__slider:before {
   transform: translateX(13px);
 }
 
+/* add a book display */
+
 .library__book.library__book--add {
   display: flex;
   justify-content: center;
@@ -254,16 +258,19 @@ input:checked + .switch__slider:before {
   cursor: pointer;
 }
 
-.modal__fields {
-  display: flex;
-  /* justify-items: center;
-  align-content: center;
-  grid-template-rows: repeat(5, 20px); */
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  gap: 20px;
+.modal__form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
   padding: 0 25% 0 25%;
   height: 100%;
   color: var(--textLight);
+}
+
+.form__column {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  gap: 15px;
+  height: 200px;
 }

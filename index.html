@@ -201,24 +201,21 @@
     <div class="book__modal hidden">
       <div class="modal__content">
         <span class="modal__close">&times;</span>
-        <div class="modal__fields">
-          <div class="fields__title">
-            <label for="title__book">What is your book title?</label>
-            <input type="text" name="title__book" id="title__book" required>
-          </div>
-          <div class="fields__author">
-            <label for="author__book">What is your book author?</label>
-            <input type="text" name="author__book" id="author__book" required>
-          </div>
-          <div class="fields__pages">
-            <label for="pages__book">How many pages?</label>
-            <input type="text" name="pages__book" id="pages__book" required>
-          </div>
-          <div class="fields__read">
+        <form class="modal__form">
+          <div class="form__column">
+            <label for="title__book">What is the book title?</label>
+            <label for="author__book">Who is the book author?</label>
+            <label for="pages__book">How many pages is it?</label>
             <label for="read__book">Did you read the book?</label>
+
+          </div>
+          <div class="form__column">
+            <input type="text" name="title__book" id="title__book" required>
+            <input type="text" name="author__book" id="author__book" required>
+            <input type="text" name="pages__book" id="pages__book" required>
             <input type="checkbox" name="read__book" id="read__book" required>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   </div>
