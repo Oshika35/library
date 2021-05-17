@@ -202,16 +202,23 @@ input:checked + .switch__slider:before {
   justify-content: center;
   align-items: center;
   background-color: hsla(262, 52%, 47%, 0.5);
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.library__book.library__book--add:hover {
+  transform: scale(1.1);
 }
 
 .body__icon--add {
   height: 64px;
   width: 64px;
   color: var(--primaryLight);
+  transition: transform 0.3s ease-in-out;
 }
 
-.body__icon--add svg {
-  cursor: pointer;
+.library__book.library__book--add:hover .body__icon--add {
+  transform: rotate(90deg);
 }
 
 /* modal */
@@ -235,11 +242,19 @@ input:checked + .switch__slider:before {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-.modal__content {
+.modal__container {
   position: relative;
   background-color: var(--background);
   min-width: 40%;
   height: 55%;
+}
+
+.modal__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 100%;
 }
 
 .modal__close {
@@ -259,25 +274,20 @@ input:checked + .switch__slider:before {
 }
 
 .modal__form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: flex-end;
+  width: 100%;
   padding: 0 15% 0 15%;
-  height: 65%;
   color: var(--textLight);
 }
 
-.form__column {
+.form__inputs {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr;
-  align-items:flex-end;
-  height: 200px;
+  gap: 20px;
 }
 
-.modal__footer {
+.inputs__row {
   display: flex;
-  justify-content: center;
-  padding-top: 2rem;
+  justify-content: space-between;
 }
 
 .footer__addButton {
@@ -292,8 +302,7 @@ input:checked + .switch__slider:before {
   font-size: 1rem;
   cursor: pointer;
   text-align: center;
-  transition: background 250ms ease-in-out, 
-              transform 150ms ease;
+  transition: background 250ms ease-in-out, transform 150ms ease;
   -webkit-appearance: none;
   -moz-appearance: none;
   border-radius: 50px;

@@ -12,7 +12,7 @@ function init() {
     // modal
     function displayModal() {
         const modal = document.querySelector(".book__modal");
-        const btn = document.querySelector(`.body__icon--add > svg`);
+        const btn = document.querySelector(`.library__book--add`);
         const span = document.querySelector(".modal__close");
 
         btn.addEventListener('click', () => {
