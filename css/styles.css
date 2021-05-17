@@ -249,15 +249,14 @@ input:checked + .switch__slider:before {
   height: 55%;
 }
 
-.modal__content {
+.container__content {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
   height: 100%;
 }
 
-.modal__close {
+.header__close {
   position: absolute;
   top: 5px;
   right: 25px;
@@ -266,20 +265,20 @@ input:checked + .switch__slider:before {
   font-weight: bold;
 }
 
-.modal__close:hover,
-.modal__close:focus {
+.header__close:hover,
+.header__close:focus {
   color: var(--primary);
   text-decoration: none;
   cursor: pointer;
 }
 
-.modal__form {
+.content__body {
   width: 100%;
-  padding: 0 15% 0 15%;
+  padding: 0 25% 0 25%;
   color: var(--textLight);
 }
 
-.form__inputs {
+.body__inputs {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   gap: 20px;
@@ -290,7 +289,12 @@ input:checked + .switch__slider:before {
   justify-content: space-between;
 }
 
-.footer__addButton {
+.inputs__button {
+  display: flex;
+  justify-content: center;
+}
+
+.button__addButton {
   display: inline-block;
   border: none;
   padding: 0.5rem 2rem;
@@ -308,12 +312,12 @@ input:checked + .switch__slider:before {
   border-radius: 50px;
 }
 
-.footer__addButton:hover,
-.footer__addButton:focus {
+.button__addButton:hover,
+.button__addButton:focus {
   background: var(--primary);
   color: var(--textLight);
 }
 
-.footer__addButton:active {
+.button__addButton:active {
   transform: scale(0.99);
 }

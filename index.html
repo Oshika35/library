@@ -200,10 +200,12 @@
     </div>
     <div class="book__modal hidden">
       <div class="modal__container">
-        <div class="modal__content">
-          <span class="modal__close">&times;</span>
-          <form class="modal__form">
-            <div class="form__inputs">
+        <div class="container__content">
+          <div class="content__header">
+            <span class="header__close">&times;</span>
+          </div>
+          <form class="content__body">
+            <div class="body__inputs">
               <div class="inputs__row">
                 <label for="row__title">What is the book title?</label>
                 <input type="text" name="row__title" id="row__title" required>
@@ -218,13 +220,13 @@
               </div>
               <div class="inputs__row">
                 <label for="row__read">Did you read the book?</label>
-                <input type="checkbox" name="row__read" id="row__read" required>
+                <input type="checkbox" name="row__read" id="row__read">
+              </div>
+              <div class="inputs__button">
+                <button class="button__addButton">Add a book</button>
               </div>
             </div>
           </form>
-          <div class="modal__footer">
-            <button class="footer__addButton">Add a book</button>
-          </div>
         </div>
       </div>
     </div>
