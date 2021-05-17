@@ -1,13 +1,29 @@
 function init() {
     let myLibrary = [];
-
-    function Book() {
-        // the constructor...
-    }
+    const pageTitle = document.querySelector('.container__header h1');
+    pageTitle.addEventListener('click', () => console.log(myLibrary));
+        class Book {
+            constructor(title, author, nbOfpages, read) {
+                this.title = title;
+                this.author = author;
+                this.nbOfpages = nbOfpages;
+                this.read = read;
+            }
+        }
 
     function addBookToLibrary() {
-        // do stuff here
+        const addButton = document.querySelector(".button__addButton");
+        const title = document.getElementById("row__title").value;
+        const author = document.getElementById("row__author").value;
+        const nbOfPages = document.getElementById("row__pages").value;
+        const read = document.getElementById("row__read");
+
+        addButton.addEventListener('click', () => {
+            myLibrary.push(new Book(title, author, nbOfPages, read))
+            console.log(myLibrary);
+        });
     }
+    addBookToLibrary();
 
     // modal
     function displayModal() {

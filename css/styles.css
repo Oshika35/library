@@ -258,17 +258,22 @@ input:checked + .switch__slider:before {
 
 .header__close {
   position: absolute;
-  top: 5px;
+  top: 20px;
   right: 25px;
   color: var(--primaryLight);
-  font-size: 50px;
-  font-weight: bold;
 }
 
-.header__close:hover,
-.header__close:focus {
+.header__close svg {
+  width: 30px;
+  height: 30px;
+  transition: 0.3s ease-in-out;
+}
+
+.header__close:hover svg,
+.header__close:focus svg {
   color: var(--primary);
   text-decoration: none;
+  transform: rotate(90deg);
   cursor: pointer;
 }
 
