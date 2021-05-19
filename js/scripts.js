@@ -41,7 +41,7 @@ function init() {
     }
 
     function displayBook() {
-        templateBook();
+        addBookToDOM();
         const title = document.querySelector(".header__title");
         const author = document.querySelector(".header__author");
         const nbOfPages = document.querySelector(".footer__numberOfPages");
@@ -50,9 +50,10 @@ function init() {
         title.textContent = currentBook.title;
         author.textContent = currentBook.author;
         nbOfPages.textContent = currentBook.nbOfPages;
+        read.checked = currentBook.read;
     }
 
-    function templateBook() {
+    function addBookToDOM() {
         const library = document.querySelector(".library__book--add");
         library.insertAdjacentHTML("afterend", `
         <div class="library__book">
@@ -106,7 +107,10 @@ function init() {
         const form = document.querySelectorAll(".content__body input")
         modal.classList.add('hidden');
         bodyScrollLock.enableBodyScroll(modal);
-        form.forEach(e => e.value = '');
+        form.forEach(e => {
+            e.value = '';
+            e.checked = false;
+        });
     }
 
     displayModal();
