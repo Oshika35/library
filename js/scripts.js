@@ -37,16 +37,17 @@ function init() {
     }
 
     function addBookToLibrary(title, author, nbOfPages, read) {
-        myLibrary.unshift(new Book(title, author, nbOfPages, read));
+        myLibrary.push(new Book(title, author, nbOfPages, read));
     }
 
     function displayBook() {
         addBookToDOM();
+        setBookAttribute();
         const title = document.querySelector(".header__title");
         const author = document.querySelector(".header__author");
         const nbOfPages = document.querySelector(".footer__numberOfPages");
         const read = document.querySelector(".checkbox__switch input");
-        const currentBook = myLibrary[0];
+        const currentBook = myLibrary[myLibrary.length - 1];
         title.textContent = currentBook.title;
         author.textContent = currentBook.author;
         nbOfPages.textContent = currentBook.nbOfPages;
@@ -80,6 +81,13 @@ function init() {
           </div>
         </div>
       </div>`);
+    }
+
+    function setBookAttribute() {
+        const bookDOM = document.querySelector(".library__book:nth-child(2)");
+        let currentBook = myLibrary[myLibrary.length - 1];
+        let bookIndex = myLibrary.indexOf(currentBook);
+        bookDOM.dataset.index = bookIndex;
     }
 
     function switchBookReadStatus() {
