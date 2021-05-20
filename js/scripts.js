@@ -5,7 +5,6 @@ function init() {
     const pageTitle = document.querySelector('.container__header h1');
     pageTitle.addEventListener('click', () => {
         console.log(myLibrary);
-        console.log(myLibrary[0].title);
     });
 
     class Book {
@@ -30,6 +29,7 @@ function init() {
                 addBookToLibrary(title, author, nbOfPages, read);
                 displayBook();
                 hideModal();
+                switchBookReadStatus();
             } else {
                 return alert("Please fill the inputs");
             }
@@ -80,6 +80,14 @@ function init() {
           </div>
         </div>
       </div>`);
+    }
+
+    function switchBookReadStatus() {
+        const switchButton = document.querySelector(".checkbox__switch input");
+        switchButton.addEventListener('click', () => {
+            myLibrary[0].read = !myLibrary[0].read;
+            console.log(myLibrary[0].read, "after");
+        })
     }
 
     // modal
