@@ -105,17 +105,22 @@ function init() {
     }
 
     function deleteBook() {
+        const deleteButton = document.querySelectorAll(".header__delete svg");
         const books = document.querySelectorAll(".library__book[data-index]");
-        books.forEach((book) => {
-            const deleteButton = document.querySelector(".header__delete svg");
-            book = book.dataset.index;
-            deleteButton.addEventListener('click', () => {
-                console.log(book, "book DOM data-index");
-                let bookIndex = myLibrary.findIndex(item => item["data-index"] === book);
-                console.log(bookIndex, "bookIndex");
-                if (book === myLibrary["data-index"]) {
-                    myLibrary.splice(myLibrary[book], 1);
-                }
+
+        deleteButton.forEach(btn => {
+            books.forEach((book) => {
+                const bookAttributeIndex = Number(book.dataset.index)
+                btn.addEventListener('click', () => {
+                    console.log(book.dataset.index, "book data-index attribute");
+                    let bookIndex = myLibrary.findIndex(item => item["data-index"] === bookAttributeIndex);
+                    console.log(bookIndex, "bookIndex");
+                    if (bookAttributeIndex === bookIndex) {
+                        myLibrary.splice(myLibrary[bookAttributeIndex], 1);
+                        let currentBook = document.querySelector(`.library__book[data-index=${CSS.escape(bookAttributeIndex)}]`);
+                        currentBook.remove();
+                    }
+                });
             });
         });
     }
