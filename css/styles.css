@@ -80,11 +80,33 @@ h1 {
 }
 
 .book__header {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 70px;
+}
+
+.header__delete {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: var(--primaryDark);
+}
+
+.header__delete svg {
+  width: 16px;
+  height: 16px;
+  transition: 0.3s ease-in-out;
+}
+
+.header__delete:hover svg,
+.header__delete:focus svg {
+  color: var(--textDark);
+  text-decoration: none;
+  transform: rotate(90deg);
+  cursor: pointer;
 }
 
 .header__title {
