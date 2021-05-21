@@ -16,6 +16,10 @@ function init() {
         }
     }
 
+    function getBookIndex() {
+
+    }
+
     function submitForm() {
         const submit = document.querySelector(".button__addButton");
 
@@ -30,6 +34,7 @@ function init() {
                 displayBook();
                 hideModal();
                 switchBookReadStatus();
+                deleteBook();
             } else {
                 return alert("Please fill the inputs");
             }
@@ -59,6 +64,13 @@ function init() {
         library.insertAdjacentHTML("afterend", `
         <div class="library__book">
         <div class="book__header">
+        <div class="header__delete">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+            clip-rule="evenodd"></path>
+        </svg>
+      </div>
           <div class="header__title"></div>
           <div class="header__author"></div>
         </div>
@@ -84,10 +96,28 @@ function init() {
     }
 
     function setBookAttribute() {
-        const bookDOM = document.querySelector(".library__book:nth-child(2)");
+        const book = document.querySelector(".library__book:nth-child(2)");
         let currentBook = myLibrary[myLibrary.length - 1];
         let bookIndex = myLibrary.indexOf(currentBook);
-        bookDOM.dataset.index = bookIndex;
+
+        book.dataset.index = bookIndex;
+        currentBook["data-index"] = bookIndex;
+    }
+
+    function deleteBook() {
+        const books = document.querySelectorAll(".library__book[data-index]");
+        books.forEach((book) => {
+            const deleteButton = document.querySelector(".header__delete svg");
+            book = book.dataset.index;
+            deleteButton.addEventListener('click', () => {
+                console.log(book, "book DOM data-index");
+                let bookIndex = myLibrary.findIndex(item => item["data-index"] === book);
+                console.log(bookIndex, "bookIndex");
+                if (book === myLibrary["data-index"]) {
+                    myLibrary.splice(myLibrary[book], 1);
+                }
+            });
+        });
     }
 
     function switchBookReadStatus() {
@@ -95,7 +125,7 @@ function init() {
         switchButton.addEventListener('click', () => {
             myLibrary[0].read = !myLibrary[0].read;
             console.log(myLibrary[0].read, "after");
-        })
+        });
     }
 
     // modal
