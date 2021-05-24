@@ -29,8 +29,6 @@ function init() {
                 addBookToLibrary(title, author, nbOfPages, read);
                 displayBook();
                 hideModal();
-                switchBookReadStatus();
-                deleteBook();
             } else {
                 return alert("Please fill the inputs");
             }
@@ -44,11 +42,15 @@ function init() {
     function displayBook() {
         addBookToDOM();
         setBookAttribute();
+        deleteBook();
+        switchBookReadStatus();
+
         const title = document.querySelector(".header__title");
         const author = document.querySelector(".header__author");
         const nbOfPages = document.querySelector(".footer__numberOfPages");
         const read = document.querySelector(".checkbox__switch input");
         const currentBook = myLibrary[myLibrary.length - 1];
+
         title.textContent = currentBook.title;
         author.textContent = currentBook.author;
         nbOfPages.textContent = currentBook.nbOfPages;
@@ -101,32 +103,23 @@ function init() {
     }
 
     function deleteBook() {
-        const deleteButton = document.querySelectorAll(".header__delete svg");
-        const books = document.querySelectorAll(".library__book[data-index]");
+        const deleteButton = document.querySelector(".header__delete svg");
+        const book = document.querySelector(".library__book[data-index]");
+        const bookAttributeIndex = Number(book.dataset.index);
+        const libIndex = myLibrary.findIndex(item => item["data-index"] === bookAttributeIndex);
 
-        deleteButton.forEach(btn => {
-            books.forEach((book) => {
-                // const bookAttributeIndex = Number(book.dataset.index)
-                btn.addEventListener('click', () => {
-                    console.log(book.getAttribute("data-index"))
-                //     console.log(book.dataset.index, "book data-index attribute");
-                //     let bookIndex = myLibrary.findIndex(item => item["data-index"] === bookAttributeIndex);
-                //     console.log(bookIndex, "bookIndex");
-                //     if (bookAttributeIndex === bookIndex) {
-                //         myLibrary.splice(myLibrary[bookAttributeIndex], 1);
-                //         let currentBook = document.querySelector(`.library__book[data-index=${CSS.escape(bookAttributeIndex)}]`);
-                //         currentBook.remove();
-                //     }
-                });
-            });
+        deleteButton.addEventListener('click', () => {
+            book.remove();
+            myLibrary.splice(myLibrary[bookAttributeIndex], 1);
         });
     }
 
     function switchBookReadStatus() {
         const switchButton = document.querySelector(".checkbox__switch input");
+        let currentBook = myLibrary[myLibrary.length - 1];
         switchButton.addEventListener('click', () => {
-            myLibrary[0].read = !myLibrary[0].read;
-            console.log(myLibrary[0].read, "after");
+            currentBook.read = !currentBook.read;
+            console.log(currentBook.read, "after");
         });
     }
 
