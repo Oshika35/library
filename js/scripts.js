@@ -16,10 +16,6 @@ function init() {
         }
     }
 
-    function getBookIndex() {
-
-    }
-
     function submitForm() {
         const submit = document.querySelector(".button__addButton");
 
@@ -110,16 +106,17 @@ function init() {
 
         deleteButton.forEach(btn => {
             books.forEach((book) => {
-                const bookAttributeIndex = Number(book.dataset.index)
+                // const bookAttributeIndex = Number(book.dataset.index)
                 btn.addEventListener('click', () => {
-                    console.log(book.dataset.index, "book data-index attribute");
-                    let bookIndex = myLibrary.findIndex(item => item["data-index"] === bookAttributeIndex);
-                    console.log(bookIndex, "bookIndex");
-                    if (bookAttributeIndex === bookIndex) {
-                        myLibrary.splice(myLibrary[bookAttributeIndex], 1);
-                        let currentBook = document.querySelector(`.library__book[data-index=${CSS.escape(bookAttributeIndex)}]`);
-                        currentBook.remove();
-                    }
+                    console.log(book.getAttribute("data-index"))
+                //     console.log(book.dataset.index, "book data-index attribute");
+                //     let bookIndex = myLibrary.findIndex(item => item["data-index"] === bookAttributeIndex);
+                //     console.log(bookIndex, "bookIndex");
+                //     if (bookAttributeIndex === bookIndex) {
+                //         myLibrary.splice(myLibrary[bookAttributeIndex], 1);
+                //         let currentBook = document.querySelector(`.library__book[data-index=${CSS.escape(bookAttributeIndex)}]`);
+                //         currentBook.remove();
+                //     }
                 });
             });
         });
