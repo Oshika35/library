@@ -109,6 +109,15 @@ h1 {
   cursor: pointer;
 }
 
+.header__title,
+.header__author {
+  width: 80%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: center;
+}
+
 .header__title {
   font-size: var(--headline-4-size);
   font-weight: var(--headlines-weight);
@@ -150,14 +159,11 @@ h1 {
 
 /* switch button */
 
-.footer__checkbox {
+.footer__checkbox label {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 10px;
-}
-
-.checkbox__read {
+  gap: 5px;
   font-size: var(--body-size);
   font-weight: var(--body-weight);
   letter-spacing: var(--body-letter-spacing);
