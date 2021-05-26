@@ -81,36 +81,49 @@ function init() {
             </svg></div>
         </div>
         <div class="book__footer">
-          <div class="footer__numberOfPages"></div>
-          <div class="footer__checkbox">
-            <div class="checkbox__read">Read</div>
-            <label class="checkbox__switch">
-              <input type="checkbox">
-              <span class="switch__slider"></span>
-            </label>
-          </div>
+            <div class="footer__numberOfPages"></div>
+            <div class="footer__checkbox">
+                <label for="read">
+                    Read
+                    <div class="checkbox__switch">
+                    <input type="checkbox" name="read" id="read" />
+                    <div class="switch__slider"></div>
+                    </div>
+                </label>
+            </div>
         </div>
       </div>`);
     }
 
+
+    // uuidv4 credit: https://stackoverflow.com/a/2117523
+    function generateRandomID() {
+        return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
+            (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+        );
+    }
+
     function setBookAttribute() {
         const book = document.querySelector(".library__book:nth-child(2)");
+        const randomID = generateRandomID();
         let currentBook = myLibrary[myLibrary.length - 1];
-        let bookIndex = myLibrary.indexOf(currentBook);
 
-        book.dataset.index = bookIndex;
-        currentBook["data-index"] = bookIndex;
+        book.dataset.id = randomID;
+        currentBook["data-id"] = randomID;
     }
 
     function deleteBook() {
         const deleteButton = document.querySelector(".header__delete svg");
-        const book = document.querySelector(".library__book[data-index]");
-        const bookAttributeIndex = Number(book.dataset.index);
-        const libIndex = myLibrary.findIndex(item => item["data-index"] === bookAttributeIndex);
+        const book = document.querySelector(".library__book[data-id]");
+        const bookObjectID = book.dataset.id;
 
         deleteButton.addEventListener('click', () => {
             book.remove();
-            myLibrary.splice(myLibrary[bookAttributeIndex], 1);
+            for (let i = 0; i < myLibrary.length; i++) {
+                if (myLibrary[i]["data-id"] === bookObjectID) {
+                    myLibrary.splice([i], 1);
+                }
+            }
         });
     }
 
@@ -123,7 +136,6 @@ function init() {
         });
     }
 
-    // modal
     function displayModal() {
         const openModal = document.querySelector(`.library__book--add`);
         const span = document.querySelector(".header__close");
