@@ -132,7 +132,6 @@ function init() {
         let currentBook = myLibrary[myLibrary.length - 1];
         switchButton.addEventListener('click', () => {
             currentBook.read = !currentBook.read;
-            console.log(currentBook.read, "after");
         });
     }
 
@@ -150,7 +149,7 @@ function init() {
         });
 
         window.addEventListener('click', (event) => {
-            if (event.target == modal) {
+            if (event.target === modal) {
                 return hideModal();
             }
         });
